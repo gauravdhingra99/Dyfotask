@@ -1,0 +1,157 @@
+{% extends "base2.html" %}
+
+{% block content %}
+   
+  <div class="text-center">
+
+      <a  href="#" data-file="my file 1" class="btn btn-lg btn-danger rename" data-target="#basicModal"  >Add room </a>
+     <a  href="#" data-file="my file 2" class="btn btn-lg btn-success sename" data-target="#UserModal" >Add User to room</a>
+             <a href="#" data-file="my file 2" class="btn btn-lg btn-success blnc" data-target="#Balance" >All users in a room</a>
+
+
+  </div>
+  <hr>
+    
+
+<div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Add room</h4>
+      </div>
+      <div class="modal-body">
+                <form class="login100-form validate-form flex-sb flex-w" method="POST" action="/creategroup/">
+          {% csrf_token %}
+          <div class="p-t-13 p-b-9">
+            <h4 class="txt1">
+              Roomname:
+            </h4>
+          </div>
+          <div class="wrap-input100 validate-input" data-validate = "Description is required">
+            <input class="input100 input-phone" type="text" name="room_name" >
+            <span class="focus-input100"></span>
+          </div>
+
+          <div class="container-login100-form-btn m-t-17">
+            <button class="login100-form-btn">
+             Submit
+            </button>
+          </div>          
+
+         </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="UserModal" tabindex="-1" role="dialog" aria-labelledby="UserModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Add User</h4>
+      </div>
+      <div class="modal-body">
+                <form class="login100-form validate-form flex-sb flex-w" method="POST" action="/adduser/">
+          {% csrf_token %}
+       
+          <div class="p-t-13 p-b-9">
+            <h4 class="txt1">
+              Roomname:
+            </h4>
+          </div>
+          <div class="wrap-input100 validate-input" data-validate = "Description is required">
+            <input class="input100 input-phone" type="text" name="room_name" >
+            <span class="focus-input100"></span>
+          </div>
+
+          <div class="p-t-13 p-b-9">
+            <h4 class="txt1">
+              email id:
+            </h4>
+          </div>
+          <div class="wrap-input100 validate-input" data-validate = "Description is required">
+            <input class="input100 input-phone" type="email" name="email" >
+            <span class="focus-input100"></span>
+          </div>
+
+
+          <div class="container-login100-form-btn m-t-17">
+            <button class="login100-form-btn">
+             Submit
+            </button>
+          </div>          
+
+         </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="Balance" tabindex="-1" role="dialog" aria-labelledby="Balance" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Users in Room</h4>
+      </div>
+      <div class="modal-body">
+         <form class="login100-form validate-form flex-sb flex-w" method="POST" action="/usersinroom/">
+          {% csrf_token %}
+       
+          <div class="p-t-13 p-b-9">
+            <h4 class="txt1">
+              Roomname:
+            </h4>
+          </div>
+          <div class="wrap-input100 validate-input" data-validate = "Description is required">
+            <input class="input100 input-phone" type="text" name="room_name" >
+            <span class="focus-input100"></span>
+          </div>
+
+
+          <div class="container-login100-form-btn m-t-17">
+            <button class="login100-form-btn">
+             Submit
+            </button>
+          </div>          
+
+         </form>
+
+        <div class="p-t-13 p-b-9">
+            <span class="txt1">
+
+
+            </span>
+          </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+        <h2> {{ message|safe }} </h2>
+   <h2>Room names</h2>  
+   <ol>
+    {% for room in rooms %}
+     <li><h2>{{ room }}</h2></li>
+    {% endfor %}
+   </ol>
+
+   <h2> Users in room {{ currentroom }}</h2>
+   <ol>
+    {% for email in emailList %}
+     <li><h2>{{ email }}</h2></li>
+    {% endfor %}
+   </ol>
+
+      
+
+{% endblock %}

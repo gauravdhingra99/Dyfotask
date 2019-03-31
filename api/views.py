@@ -10,7 +10,7 @@ from rest_framework.renderers import TemplateHTMLRenderer
 import pyrebase
 
 config = {
-    "apiKey": "AIzaSyBqsfini42H--uMKOMAfYWxtfLvEY_yk_Q",
+    "apiKey": "***************************************",
     "authDomain": "dyfolabs-task.firebaseapp.com",
     "databaseURL": "https://dyfolabs-task.firebaseio.com",
     "projectId": "dyfolabs-task",

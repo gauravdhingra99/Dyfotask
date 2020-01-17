@@ -56,7 +56,7 @@ purl==1.4
 pyasn1==0.4.5
 pyasn1-modules==0.2.4
 pycparser==2.19
-pycryptodome==3.4.3
+pycryptodome==3.6.6
 pygal==2.4.0
 Pyrebase==3.0.27
 python-dateutil==2.8.0

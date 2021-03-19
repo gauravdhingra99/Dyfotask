@@ -29,7 +29,7 @@ django-sendsms==0.2.3
 django-tables2==1.21.2
 django-treebeard==4.3
 django-widget-tweaks==1.4.3
-djangorestframework==3.9.2
+djangorestframework==3.11.2
 factory-boy==2.11.1
 Faker==1.0.2
 gcloud==0.17.0
